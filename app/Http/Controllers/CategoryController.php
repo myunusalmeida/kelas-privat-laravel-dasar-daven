@@ -76,7 +76,6 @@ class CategoryController extends Controller
             unset($data['image']);
         }
 
-        // dd($data);
         $data['slug'] = Str::slug($request->category_name); // Ikan Nirwana == ikan-nirwana
         Category::find($id)->update($data); // INSERT INTO categories (nama_kategori, status, deskripsi) VALUES ($request->category_name, $request->status, $request->description)
         return redirect()->route('kategori.index');
@@ -84,7 +83,8 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
-        //
+        Category::find($id)->delete();
+        return redirect()->route('kategori.index');
     }
 
     // create, store, edit, update, destroy

@@ -17,12 +17,17 @@ Route::get('/contact-us', function () {
     return view('pages.contact');
 })->name('contact-us');
 
-Route::get('categories', [CategoryController::class, 'index'])->name('kategori.index');
-Route::get('categories/create', [CategoryController::class, 'create'])->name('kategori.create');
-Route::post('categories', [CategoryController::class, 'store'])->name('kategori.store');
+// Route::get('categories', [CategoryController::class, 'index'])->name('kategori.index');
+// Route::get('categories/create', [CategoryController::class, 'create'])->name('kategori.create');
+// Route::post('categories', [CategoryController::class, 'store'])->name('kategori.store');
 
-Route::get('categories/{category}', [CategoryController::class, 'edit'])->name('kategori.edit');
-Route::put('categories/{category}', [CategoryController::class, 'update'])->name('kategori.update');
+// Route::get('categories/{category}/edit', [CategoryController::class, 'edit'])->name('kategori.edit');
+// Route::put('categories/{category}', [CategoryController::class, 'update'])->name('kategori.update');
+
+// Route::delete('categories/{category}', [CategoryController::class, 'destroy'])
+//     ->name('kategori.destroy');
+
+Route::resource('kategori', CategoryController::class); // Digunakan untuk CRUD
 
 // admin
 // dashboard

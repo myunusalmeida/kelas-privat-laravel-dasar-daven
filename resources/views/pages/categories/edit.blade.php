@@ -16,8 +16,8 @@
         </div>
         <div class="mb-3">
             <label for="description">Deskripsi</label>
-            <input type="text" class="form-control @error('description') is-invalid @enderror" id="description"
-                name="description" value="{{ old('description', $kategori->description) }}">
+            <input type="text" maxlength="100" class="form-control @error('description') is-invalid @enderror"
+                id="description" name="description" value="{{ old('description', $kategori->description) }}">
             @error('description')
                 <div id="category_name_feedback" class="invalid-feedback">
                     {{ $message }}

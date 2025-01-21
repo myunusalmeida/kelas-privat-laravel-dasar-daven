@@ -13,6 +13,7 @@
                     <th>Nama Kategori</th>
                     <th>Deskripsi</th>
                     <th>Status</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +26,20 @@
                         <td>{{ $item->category_name }}</td>
                         <td style="width: 500px">{{ $item->description }}</td>
                         <td>{{ $item->status }}</td>
+                        <td>
+                            <div class="d-flex gap-1">
+                                <a href="{{ route('kategori.edit', $item->id) }}" class="btn btn-sm btn-warning">
+                                    Edit
+                                </a>
+                                <form action="{{ route('kategori.destroy', $item->id) }}" method="post">
+                                    @csrf @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger"
+                                        onclick="return confirm('Are you sure?')">
+                                        Hapus
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
